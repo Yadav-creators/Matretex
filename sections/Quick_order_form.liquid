@@ -1,0 +1,265 @@
+<div class="Quick_order_form_section page-width">
+<div class="Quick_order_form_bs">
+  
+  <div class="image_section_uick_form_bs">
+    <div class="left_image_order_form_bs">
+    <img src="{{ section.settings.quick_order_bs_form_img | img_url: '' }}"/>
+    </div>  
+  </div>
+
+  <div class="right_bs_text_link">
+    <div class="class_no_class_bs">
+      <h1 class="heading_quick_order_form_bs"> {{ section.settings.heading_quick_order_form_bs }} </h1>
+      <p class="text_quick_order_form_bs"> {{ section.settings.text_quick_order_form_bs }} </p>
+      {% if customer %}
+      <a class="link_quick_order_form_bs" href="/collections/quick-order"> {{ section.settings.label_quick_order_form_bs }} </a>
+      {% else %}
+      <a class="link_quick_order_form_bs_ss" href="https://mastertex.us/account/login"> {{ section.settings.label_quick_order_form_bs_ss }} </a>
+      {% endif %}      
+    </div>
+  </div>
+  
+</div>
+</div>
+
+<style>
+  
+  
+.Quick_order_form_section.page-width {
+    background: #B68D7B;
+}
+  
+.class_no_class_bs h1, p, a {
+
+    text-decoration:none;
+}
+   
+.Quick_order_form_bs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+  	justify-content:center;
+}
+/* .Quick_order_form_bs .image_section_uick_form_bs {
+    width: 58.35%;
+}  
+.Quick_order_form_bs .right_bs_text_link {
+    width: 41.65%;
+} */
+  
+.Quick_order_form_bs .image_section_uick_form_bs {
+    width: 35%;
+}  
+.Quick_order_form_bs .right_bs_text_link {
+    width: 42%;
+}
+  
+.Quick_order_form_bs .right_bs_text_link .class_no_class_bs h1 {
+    font-weight: 400;
+    letter-spacing: 10px;
+    font-family: "playfair Display";
+    font-size: 38px;
+    line-height: 46px;
+    color: #444444;
+    margin-bottom: 20px;
+} 
+.Quick_order_form_bs .right_bs_text_link .class_no_class_bs p.text_quick_order_form_bs {
+    font-size: 22px !important;
+    line-height: 28px;
+    font-weight: 400;
+    color: #3c3c3c;
+    max-width: 75%;
+}  
+.Quick_order_form_bs .right_bs_text_link {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 7rem;
+} 
+  
+  h1.heading_quick_order_form_bs, p.text_quick_order_form_bs {
+    color: white !important;
+}
+  
+
+  
+.Quick_order_form_bs .right_bs_text_link .class_no_class_bs .link_quick_order_form_bs {
+ 
+    border-radius: 0;
+   
+    font-size: 21px;
+    line-height: 22px;
+    padding: 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Poppins";
+   
+    position: relative;
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    padding-bottom: 6px;
+  color: white;
+} 
+  
+  .Quick_order_form_bs .right_bs_text_link .class_no_class_bs .link_quick_order_form_bs {
+    border-radius: 0;
+    font-size: 21px;
+    line-height: 22px;
+    padding: 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Poppins";
+    position: relative;
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    padding-bottom: 6px;
+    background: #404042;
+    padding: 0.6rem 2rem;
+}
+  
+  
+ .Quick_order_form_bs .right_bs_text_link .class_no_class_bs a.link_quick_order_form_bs_ss {
+    border-radius: 0;
+    font-size: 21px;
+    line-height: 22px;
+    padding: 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Poppins";
+    position: relative;
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    padding-bottom: 6px;
+    background: #404042;
+    padding: 0.6rem 2rem;
+      color: white;
+}
+  
+@media screen and (max-width:1800px) {
+ .Quick_order_form_bs .right_bs_text_link {
+    padding: 0 4rem;
+ } 
+ .Quick_order_form_bs .right_bs_text_link .class_no_class_bs h1 {
+    font-size: 32px;
+    line-height: 40px;
+ }  
+  .Quick_order_form_bs .right_bs_text_link .class_no_class_bs p.text_quick_order_form_bs {
+    max-width: 80%;
+  }
+}
+  
+@media screen and (max-width:1300px) {
+ .Quick_order_form_bs .right_bs_text_link .class_no_class_bs h1 {
+    font-size: 26px;
+    line-height: 36px;
+ } 
+  .Quick_order_form_bs .right_bs_text_link .class_no_class_bs p.text_quick_order_form_bs {
+    max-width: 100%;
+    font-size: 20px !important;
+    line-height: 24px;
+  }
+} 
+  
+@media screen and (max-width:991px) {
+ .Quick_order_form_bs .right_bs_text_link .class_no_class_bs h1 {
+    font-size: 20px;
+    line-height: 28px;
+   letter-spacing:4px;
+   margin-bottom:15px;
+ } 
+  .Quick_order_form_bs .right_bs_text_link .class_no_class_bs p.text_quick_order_form_bs {
+    max-width: 100%;
+    font-size: 14px !important;
+    line-height: 18px;
+  }
+  .Quick_order_form_bs .right_bs_text_link {
+    padding: 0 1rem;
+  }
+}
+ 
+    
+@media screen and (max-width:767px) {
+  .Quick_order_form_bs {
+    flex-direction: column-reverse;
+  }
+  .Quick_order_form_bs .image_section_uick_form_bs {
+    	width:100%;
+  }
+  .Quick_order_form_bs .right_bs_text_link {
+    width: 100%;
+    text-align: center;
+    margin: 2rem auto;
+    justify-content: center;
+  }
+  .Quick_order_form_bs .right_bs_text_link .class_no_class_bs h1 {
+    font-size: 34px;
+    line-height: 44px;
+    letter-spacing: 3px;
+  }
+  .Quick_order_form_bs .right_bs_text_link .class_no_class_bs p.text_quick_order_form_bs {
+    font-size: 18px !important;
+    line-height: 22px;
+  }
+}
+  </style>
+
+
+
+{% schema %}
+{
+  "name": "Quck Order Form",
+  "tag": "section",
+  "class": "Quick_Order_form",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "quick_order_bs_form_img",
+      "label": "Order Form Image"
+    },
+    {
+      "type": "text",
+      "id": "heading_quick_order_form_bs",
+      "label": "Order Form Heading"
+    },
+    {
+      "type": "text",
+      "id": "text_quick_order_form_bs",
+      "label": "Order Form text"
+    },
+    {
+      "type": "url",
+      "id": "link_quick_order_form_url",
+      "label": "Order Form Link"
+    },
+    {
+      "type": "text",
+      "id": "label_quick_order_form_bs",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "link_quick_order_form_url_ss",
+      "label": "Order Form Link"
+    },
+    {
+      "type": "text",
+      "id": "label_quick_order_form_bs_ss",
+      "label": "Button Label"
+    }
+
+
+  ],
+
+  "presets": [
+     {
+       "name": "Quick Order Form"
+    }
+   ]
+}
+{% endschema %}

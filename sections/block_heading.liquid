@@ -1,0 +1,45 @@
+<div class="block_head">
+  	{{section.settings.block_name}}
+</div>
+
+<style>
+  .block_head p {
+    text-align: center;
+    font-size: 32px;
+    line-height: 40px;
+    color: #444444;
+    font-weight: 600;
+    font-family: "playfair Display";
+    letter-spacing: 1px;
+    margin: 1.5em 0 2em 0;
+}
+</style>  
+
+{% schema %}
+{
+  "name": "block head",
+  "settings": [
+     {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    },
+
+	{
+		"type": "richtext",
+		"id":	"block_name",
+		"label":	"heading"
+	}
+  ],
+  
+
+   "presets": [
+     {
+       "name": "block head",
+       "settings": {
+          "title": "top-header"
+        }
+     }
+   ]
+}
+{% endschema %}

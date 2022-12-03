@@ -1,0 +1,170 @@
+ <div class="online-portal">
+   <h1 class="block_head">{{section.settings.block_heading}}</h1>
+   <div class="portal_block">
+   {% for block in section.blocks %}
+		<div class="inner_portal">
+          <div class="portal_img" href="{{block.settings.portal_ico}}"><img class="online_portal_img" src="{{ block.settings.portal_icons | img_url: '' }}" /></div>
+			<p> {{ block.settings.portal_txt }}</p>	  
+		</div>
+  {% endfor %}
+</div>
+</div>
+
+
+<style>
+  .online-portal h1.block_head > p {
+    text-align: center;
+    font-family: "playfair Display";
+    letter-spacing: 1px;
+    margin: 15px 0;
+    color:#ffffff;
+}
+.portal_block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2em 0;
+}
+.portal_block .inner_portal {
+    width: 25%;
+}
+.portal_block .inner_portal img.online_portal_img {
+    max-width: 100px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+.portal_block .inner_portal:nth-child(3) a.portal_img img {
+    width: 80px;
+}
+.online-portal {
+    background: #b58d7a;
+    padding: 2em 0;
+}
+.portal_block .inner_portal p {
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    max-width: 55%;
+    margin: 30px auto;
+  text-align:center;
+}
+.portal_block .inner_portal .portal_img {
+    min-height: 160px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  	transition:all 0.3s linear;
+   	-webkit-transition:all 0.3s linear;
+   	-moz-transition:all 0.3s linear;
+   	-ms-transition:all 0.3s linear;
+} 
+
+  
+@media screen and (max-width:1600px) {
+  .portal_block .inner_portal p {
+    max-width: 70%;
+}
+ .portal_block .inner_portal .portal_img{
+  align-items:center; 
+ }
+  .portal_block .inner_portal p {
+    margin: 0 auto;
+}
+}
+  
+@media screen and (max-width:1199px) {
+  .portal_block .inner_portal p {
+    font-size: 18px;
+    line-height: 20px;
+    max-width: 80%;
+  } 
+  .portal_block .inner_portal img.online_portal_img {
+    max-width: 80px;
+}
+.portal_block .inner_portal:nth-child(3) a.portal_img img {
+    width: 65px;
+}
+}
+  
+@media screen and (max-width:991px) {
+ .portal_block .inner_portal p {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: 400;
+    max-width: 90%;
+ } 
+  .portal_block .inner_portal {
+    width: 50%;
+  }
+  .online-portal h1.block_head > p{
+   	font-size:32px;
+    line-height:40px;
+  }
+}
+  
+@media screen and (max-width:480px) { 
+  .portal_block .inner_portal {
+    width: 100%;
+  }
+  .portal_block .inner_portal p {
+   	text-align:center; 
+  }
+}
+  
+</style>  
+   
+   {% schema %}
+{
+  "name": "online portal",
+  "settings": [
+     {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    },
+
+	{
+      "type": "richtext",
+      "id": "block_heading",
+      "label": "heading"
+    }
+  ],
+  "blocks": [
+      {
+       "name": "online portal",
+       "type": "custom",
+       "settings": [
+   		{
+   			"type": "url",
+   			"id":	"portal_ico",
+   			"label": "link"
+   		},
+         {
+           "type": "image_picker",
+           "id": "portal_icons",
+           "label": "Image"
+         },
+		{
+           "type": "richtext",
+           "id": "portal_txt",
+           "label": "text"
+         }
+		
+       ]
+     }
+   ],
+
+   "presets": [
+     {
+       "name": "online portal",
+       "settings": {
+          "title": "top-header"
+        }
+     }
+   ]
+}
+{% endschema %}

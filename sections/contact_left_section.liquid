@@ -1,0 +1,130 @@
+ <div class="contact_left_section">
+   <a class="contact_img" href="{{section.settings.contact_img_link}}"><img class="contact_img" src="{{section.settings.contact_img | img_url: '' }}"></a>
+   <h1 class="block_head">{{section.settings.block_heading}}</h1>
+   <div class="block_txt">{{ section.settings.portal_txt }}</div>
+   	<div class="contact_link">
+      <a href="{{section.settings.contact_ico_link}}"><img class="contact_ico" href="{{section.settings.contact_ico | img_url: '' }}"></a>
+       	<p> {{ section.settings.phone_num }}</p>
+     </div>
+   <div class="support">{{section.settings.support_txt}}</div>
+    <div class="support">{{section.settings.support_txt1}}</div>
+   
+</div>
+
+
+<style>
+ .contact_left_section {
+   background-color:#b48e7b;
+   float:left;
+   width:100%;
+ }
+  .contact_left_section .contact_img {
+    width: 100%;
+  }
+ .contact_left_section img.contact_img {
+    width: 100%;
+}
+  .contact_left_section h1.block_head p {
+    font-family: "playfair Display";
+    max-width: 200px;
+    margin: 0;
+    color:#ffffff;
+}
+  .contact_left_section .block_txt p {
+    font-size: 20px;
+    line-height: 28px;
+    max-width: 380px;
+    color: #ffffff;
+    font-weight: 300;
+    font-family: "poppins";
+}
+  .web_btn {
+    max-width: 120px;
+    width: auto;
+}
+  .web_btn p {
+    margin: 0;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 15px;
+    font-family: "playfair Display";
+    letter-spacing: 1px;
+}
+</style>  
+   
+   {% schema %}
+{
+  "name": "contact left section",
+  "settings": [
+     {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    },
+	
+	{
+		"type": "url",
+		"id":	"contact_img_link",
+		"label": "link"
+	},
+
+	 {
+    	"type": "image_picker",
+    	"id": "contact_img",
+    	"label": "Image"
+    },
+
+    {
+      "type": "richtext",
+      "id": "block_heading",
+      "label": "heading"
+    },
+	
+	{
+    	"type": "richtext",
+    	"id": "portal_txt",
+    	"label": "text"
+    },
+
+	{
+		"type": "url",
+		"id":	"contact_ico_link",
+		"label": "link3"
+	},
+
+    {
+    	"type": "image_picker",
+    	"id": "contact_ico",
+    	"label": "Image"
+    },
+    {
+    	"type": "richtext",
+    	"id": "phone_num",
+    	"label": "text"
+    },
+
+	{
+    	"type": "richtext",
+    	"id": "support_txt1",
+    	"label": "text"
+    },
+	{
+    	"type": "richtext",
+    	"id": "support_txt",
+    	"label": "text"
+    }
+
+
+	
+  ],
+  
+   "presets": [
+     {
+       "name": "contact left section",
+       "settings": {
+          "title": "top-header"
+        }
+     }
+   ]
+}
+{% endschema %}

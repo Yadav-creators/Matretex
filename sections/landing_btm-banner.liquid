@@ -1,0 +1,165 @@
+<section class="landing_btm_banner">
+<div class="landing_btm_banner_img">
+  <img class="landing_btm_banner" src="{{ section.settings.landing_banner_btmimg | img_url: '' }}">
+</div>
+  	<div class="landing_btm_banner_txt">
+      <a href="{{ section.settings.banner_btm_ico }}"><img class="landing_btm_banner_ico" src="{{ section.settings.landing_banner_btmico | img_url: '' }}"></a>
+     {{ section.settings.landing_btm_banner_txt }}	
+	</div>
+</section>
+		  
+<style>
+section.landing_btm_banner {
+    position: relative;
+}
+.landing_btm_banner_txt {
+    z-index: 11 !important;
+}
+.landing_btm_banner_txt {
+    position: absolute;
+    top: 50%;
+    z-index: 999;
+    left: unset;
+    transform: translateY(-50%);
+  	-webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  padding-left: 300px;
+}
+  .landing_btm_banner_txt img.landing_btm_banner_ico {
+    width: 120px;
+}
+  
+.landing_btm_banner_txt p {
+    color: #fff;
+    font-size: 56px;
+    line-height: 66px;
+    font-family: "Times New ROman";
+    letter-spacing: 2px;
+    max-width: 300px;
+    margin: 0;
+    font-weight: 600;
+}
+section.landing_btm_banner .landing_btm_banner_img a:hover {
+    cursor: auto;
+} 
+  
+@media screen and (max-width:1600px) {
+ .landing_btm_banner_txt {
+  padding-left: 250px;
+} 
+.landing_btm_banner_txt img.landing_btm_banner_ico {
+    width: 100px;
+}
+ .landing_btm_banner_txt p {
+    font-size: 46px;
+    line-height: 54px;
+    max-width: 150px;
+} 
+}
+    
+@media screen and (max-width:1400px) {
+ .landing_btm_banner_txt {
+  padding-left: 150px;
+} 
+ 
+}  
+  
+  
+@media screen and (max-width:991px) {
+ .landing_btm_banner_txt {
+  padding-left: 100px;
+} 
+.landing_btm_banner_txt img.landing_btm_banner_ico {
+    width: 80px;
+}
+ .landing_btm_banner_txt p {
+    font-size: 36px;
+    line-height: 46px;
+    max-width: 200px;
+} 
+}
+  
+  
+@media screen and (max-width:667px) {
+ .landing_btm_banner_txt {
+  padding-left: 40px;
+} 
+.landing_btm_banner_txt img.landing_btm_banner_ico {
+    width: 50px;
+}
+ .landing_btm_banner_txt p {
+    font-size: 26px;
+    line-height: 36px;
+    max-width: 100px;
+}
+section.landing_btm_banner .landing_btm_banner_img img {
+    min-height: 220px;
+    object-fit: cover;
+}
+}
+</style>  
+
+{% schema %}
+{
+  "name": "landing btm banner",
+  "settings": [
+     {
+      "type": "text",
+      "id": "title",
+  	"label": "link"
+     
+    },
+
+		{
+			"type": "url",
+			"id":	"banner_btm_img",
+			"label": "link"
+		 },
+		
+		
+		{
+			"type": "image_picker",
+			"id":	"landing_banner_btmimg",
+			"label": "Image"
+		 },
+		
+		{
+			"type": "url",
+			"id":	"banner_btm_ico",
+			"label": "link"
+		 },
+		
+		
+		{
+			"type": "image_picker",
+			"id":	"landing_banner_btmico",
+			"label": "Image"
+		 },
+
+		{
+			"type": "richtext",
+			"id":	"landing_btm_banner_txt",
+			"label":	"text"
+		}
+ 	],
+  
+
+   "presets": [
+     {
+       "name": "landing btm banner",
+       "settings": {
+          "title": "banner"
+        }
+     }
+   ]
+}
+{% endschema %}
+
+
+

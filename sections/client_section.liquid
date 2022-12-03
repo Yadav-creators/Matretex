@@ -1,0 +1,316 @@
+<div class="client_section">
+ 
+		<div class="top-client">
+			<span class="clent_col"><img class="client" src="{{ section.settings.client_img | img_url: '' }}" />
+          </span>
+          <div class="client-blocktxt">	
+            <div class="block_head">{{section.settings.block_heading}}</div>	
+            <div class="block_para">{{section.settings.block_txt}}</div>
+          </div>
+		</div>
+        <div class="client_imgs">	 
+            {% for block in section.blocks %}
+                <div class="client_block">	
+                  <img class="client_block" src="{{ block.settings.client_block_img | img_url: '' }}" />
+            
+                </div>
+            {% endfor %}
+        </div>
+  {% if section.settings.eee-content != blank %}
+  <div class="client-link">
+    <a href="{{section.settings.eee-link}}">{{section.settings.eee-content}}</a>
+  </div>
+  {% endif %}
+</div>
+<style>
+  .client-link {
+    text-align: center;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  .client-link a {
+    padding: 20px 30px !important;
+    background-color: white;
+}
+  .page_id_98454831350 .client_section
+  {
+      margin-top: 2vw;
+  }
+.client_section {
+    background-image: url(https://cdn.shopify.com/s/files/1/0638/0450/6358/files/design-banner.png?v=1653748105);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+}  
+.client_section .top-client {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1em 0;
+}
+.client_section .top-client .clent_col {
+    max-width: 30rem;
+    float: left;
+    margin: 0 auto;
+    padding: 2em 5em;
+    text-align: left;
+}
+.client_section .top-client p {
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 28px;
+    max-width: 100%;
+    font-weight: 300;
+    letter-spacing: 2px;
+    padding: 0 15px;
+  	text-align:left;
+}
+
+.client_imgs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 90%;
+    margin: 0 auto;
+    padding-bottom: 3em;
+}
+.client_imgs .client_block {
+    max-width: 170px;
+    text-align: center;
+} 
+.block_head p {
+    font-size: 34px !important;
+    line-height: 44px !important;
+    font-family: "playfair Display";
+  	margin: 0 0 20px 0;
+}
+.block_para p {
+    font-size: 20px !important;
+    line-height: 30px !important;
+    font-family: "playfair Display";
+
+} 
+.client-blocktxt {
+    max-width: 50%;
+    padding-right: 18em;
+}  
+.client_section .client_imgs .client_block {
+    transition: all 0.3s linear;
+   	-webkit-transition: all 0.3s linear;
+   -moz-transition: all 0.3s linear;
+   -ms-transition: all 0.3s linear;
+} 
+.client_section .client_imgs .client_block:hover {
+    transform:scale(0.9);
+  	-moz-transform:scale(0.9);
+  	-ms-transform:scale(0.9);
+  	-webkit-transform:scale(0.9);
+}
+  
+  
+@media screen and (max-width:1600px) {
+  .client_section .top-client,.client_imgs {
+      max-width: 100%;
+  } 
+  .client_section .top-client .clent_col {
+    max-width: 35%;
+  }
+  .client-blocktxt {
+    padding-right: 12em;
+  }
+}
+  
+@media screen and (max-width:1199px) {
+  .client_imgs .client_block {
+      max-width: 120px;
+  }  
+  .client-blocktxt {
+    padding-right: 0;
+  }
+}
+  
+@media screen and (max-width:991px) {
+  .client_imgs .client_block {
+      max-width: 100px;
+  } 
+  .block_head p {
+    font-size: 30px !important;
+    line-height: 40px !important;
+  }
+  .client_section .top-client .clent_col {
+    max-width: 45%;
+  }
+}
+
+@media screen and (max-width:767px) {
+ 
+    .page_id_98454831350 .client_section
+   {
+    margin-top:10vw;
+  }
+  .client_imgs {
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom:0;
+  }
+  .client_imgs .client_block {
+    max-width: 160px;
+    margin: 0 auto 1em auto;
+  }	
+  .client_section .top-client p {
+    padding: 0 15px;
+  }
+  .client_section .top-client p {
+    font-size: 17px;
+    line-height: 25px;
+  }
+  .client_section .client_imgs .client_block {
+    width: 50%;
+    max-width: inherit;
+  }
+  .client_section {
+    background-image: url(https://cdn.shopify.com/s/files/1/0638/0450/6358/files/banner-tex.png?v=1654084672);
+  }
+  .client-blocktxt {
+    max-width: 80%;
+    margin-bottom: 30px;
+  }
+  .client-blocktxt .block_head p, .client-blocktxt .block_para p {
+    text-align: center;
+    margin: 10px 0;
+  }
+  .client_section .top-client .clent_col {
+    max-width: 60%;
+    padding: 30px;
+  }
+}
+  
+  
+@media screen and (max-width:575px) {
+ .client_section .top-client .clent_col {
+    max-width: 70%;
+ } 
+  .client_imgs .client_block {
+    max-width: 120px;
+  }
+  .client_section .client_imgs .client_block a, .client_section .client_imgs .client_block a img {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+  }
+  .block_head p {
+    font-size: 26px !important;
+    line-height: 36px !important;
+  }
+  .block_para p {
+    font-size: 17px !important;
+    line-height: 27px !important;
+    font-family: "playfair Display";
+  }
+  .client-blocktxt {
+    max-width: 100%;
+  }
+}
+  
+  
+@media screen and (max-width:480px) {
+ .client_section .top-client .clent_col {
+    max-width: 90%;
+ } 
+  .client_section .top-client p {
+    font-size: 15px;
+    line-height: 22px;
+}
+  .client_section .top-client .clent_col {
+    max-width: 80%;
+  }
+ 
+}
+  
+</style>
+
+{% schema %}
+{
+  "name": "client block",
+  "settings": [
+     {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    },
+		{
+			"type": "url",
+			"id": "client_link",
+			"label": "Link"
+		},  
+			
+		{
+           "type": "image_picker",
+           "id": "client_img",
+           "label": "Image"
+         },
+ 		{
+			"type": "richtext",
+			"id":	"block_heading",
+			"label":	"text"
+		 },
+		 {
+			"type": "richtext",
+			"id":	"block_txt",
+			"label":	"text"
+		 },
+		 {
+			"type": "text",
+			"id":	"eee-content",
+			"label":	"Partner Text"
+		 },
+		 {
+			"type": "url",
+			"id":	"eee-link",
+			"label":	"Partner Link"
+		 }
+  ],
+  "blocks": [
+      {
+       "name": "client block",
+       "type": "custom",
+       "settings": [
+			
+			{
+				"type": "url",
+				"id": "clientblock_link",
+				"label": "Link"
+			},  
+			
+			{
+			   "type": "image_picker",
+			   "id": "client_block_img",
+			   "label": "Image"
+			}
+		
+       ]
+     }
+   ],
+
+   "presets": [
+     {
+       "name": "client block",
+       "settings": {
+          "title": "client block"
+        }
+     }
+   ]
+}
+{% endschema %}
+
+
+

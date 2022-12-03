@@ -1,0 +1,56 @@
+<div class="single_text">
+  	{{ section.settings.single_txt }}
+</div>
+
+<style>
+  .single_text {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom:40px;
+  }
+  .single_text p {
+    color: #000;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    font-family: "playfair Display";
+  }
+  
+  @media screen and (max-width:480px) {
+    .single_text {
+      width: 90%;
+    }  
+  }
+  
+ <style>
+
+  {% schema %}
+{
+  "name": "single text",
+  "settings": [
+     {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    },
+
+	{
+    	"type": "richtext",
+    	"id": "single_txt",
+    	"label": "text"
+    }
+
+  ],
+
+  
+
+   "presets": [
+     {
+       "name": "single text",
+       "settings": {
+          "title": "top-header"
+        }
+     }
+   ]
+}
+{% endschema %}

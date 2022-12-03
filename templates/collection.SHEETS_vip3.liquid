@@ -1,0 +1,9 @@
+{%if customer.tags contains 'vip3'%}
+{% section 'pages_heading' %}
+ {% section 'main-collection' %}
+{%else%}
+
+{{ pages.no-access.content }}
+
+
+{%endif%}

@@ -1,0 +1,83 @@
+<div class="privacy_policy">
+   {% for block in section.blocks %}
+  <div class="privacy_head">{{ block.settings.privacy_head }}</div>
+  <div class="privacy_para">{{ block.settings.privacy_para }}</div>
+  {% endfor %}
+</div>
+<style>
+  .privacy_policy {
+    max-width: 70%;
+    margin: 0 auto 60px auto;
+  }
+  .privacy_policy .privacy_head p {
+    font-size: 20px;
+    line-height: 28px;
+    color: #000000;
+    font-weight: 600;
+    font-family: "Times New Roman";
+    margin: 0 0 10px 0;
+    letter-spacing: 1px;
+  }
+  .privacy_policy .privacy_para p {
+    color: #000;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight:"poppins";
+  }
+  .privacy_policy .privacy_head {
+    margin-bottom: 15px;
+  }
+  
+  @media screen and (max-width:767px) {
+    .privacy_policy {
+      max-width: 90%;
+    }
+    
+  }
+ </style>
+
+{% schema %}
+{
+  "name": "privacy policy",
+	"settings": [
+     {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }
+		
+  ],
+
+  "blocks": [
+      {
+       "name": "privacy_policy",
+       "type": "custom",
+       "settings": [
+		
+			{
+			   "type": "richtext",
+			   "id": "privacy_head",
+			   "label": "heading"
+			},
+
+		
+			{
+			   "type": "richtext",
+			   "id": "privacy_para",
+			   "label": "text"
+			}
+		
+       ]
+     }
+   ],
+
+   "presets": [
+     {
+       "name": "privacy policy",
+       "settings": {
+          "title": "privacy policy"
+        }
+     }
+   ]
+}
+{% endschema %}

@@ -1,0 +1,136 @@
+
+{% comment %} Wholesale_Club_Product_Prices Start {% endcomment %}
+{% assign base_product = product %}
+{% assign base_variant = product.selected_or_first_available_variant %}
+
+{% if shop.metafields.sawholesale['base_price'] == blank %}
+  {% assign base_price = 'compare_at_price' %}
+{% else %}
+  {% assign base_price = shop.metafields.sawholesale['base_price'] %}
+{% endif %}
+
+{% assign saw_discount = 0 %}{% assign saw_has_discount = false %}
+
+{% if customer.tags != blank %}
+  {% for mf in base_product.metafields.sawholesale %}
+    {% capture product_customer_tag %}{{ mf | first | replace: 'discount_', '' }}{% endcapture %}
+    {% if customer.tags contains product_customer_tag %}
+      {% assign saw_has_discount = true %}
+      {% assign discount_key = product_customer_tag | prepend: 'discount_' %}
+      {% assign price_key = product_customer_tag | prepend: 'price_' %}
+      {% assign saw_discount = base_product.metafields.sawholesale[discount_key] | divided_by: 100.0 %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% assign saw_discount = 1 | minus: saw_discount %}
+
+{% if base_price == 'price' or base_variant.compare_at_price == blank  or base_variant.compare_at_price == 0 or base_variant.compare_at_price < base_variant.price %}
+  {% assign saw_variant_compare_at_price = base_variant.price %}
+{% else %}
+  {% assign saw_variant_compare_at_price = base_variant.compare_at_price %}
+{% endif %}
+
+{% assign cpe = shop.metafields.sawholesale['cpe'] | default: "true" %}
+{% if base_variant.metafields.sawholesale[price_key] != blank and cpe == "true" %}
+  {% assign saw_variant_price = base_variant.metafields.sawholesale[price_key] %}
+{% else %}
+  {% assign saw_variant_price = saw_variant_compare_at_price | times: saw_discount %}
+{% endif %}
+
+{% if saw_has_discount == false or saw_variant_price >= saw_variant_compare_at_price %}
+  {% assign WCProduct_Price = base_product.price %}
+  {% assign WCProduct_ComparePrice = base_product.compare_at_price %}
+  {% assign WCProduct_PriceMin = base_product.price_min %}
+  {% assign WCProduct_ComparePriceMin = base_product.compare_at_price_min %}
+  {% assign WCProduct_PriceMax = base_product.price_max %}
+  {% assign WCProduct_ComparePriceMax = base_product.compare_at_price_max %}
+  {% assign WCProduct_VariantPrice = base_variant.price %}
+  {% assign WCProduct_VariantComparePrice = base_variant.compare_at_price %}
+{% else %}   
+  {% assign WCProduct_Price = saw_variant_price %}
+  {% assign WCProduct_PriceMin = base_product.price_min | times: saw_discount %}
+  {% assign WCProduct_PriceMax = base_product.price_max | times: saw_discount %}
+  {% assign WCProduct_ComparePrice = saw_variant_compare_at_price %}
+  {% if base_product.compare_at_price_min != 0 %}{% assign WCProduct_ComparePriceMin = base_product.compare_at_price_min %}{% else %}{% assign WCProduct_ComparePriceMin = base_product.price_min %}{% endif %}
+  {% if base_product.compare_at_price_max != 0 %}{% assign WCProduct_ComparePriceMax = base_product.compare_at_price_max %}{% else %}{% assign WCProduct_ComparePriceMax = base_product.price_max %}{% endif %}
+  {% assign WCProduct_VariantPrice = saw_variant_price %}
+  {% assign WCProduct_VariantComparePrice = saw_variant_compare_at_price %}
+{% endif %}
+{% comment %} Wholesale_Club_Product_Prices End {% endcomment %}
+{%- comment %}{%- if product.available == false and WCProduct_Price == 0 %}{% continue %}{% endif -%}{% endcomment -%}
+{%- liquid 
+  assign pr_id = product.id
+  assign pr_options = product.options_with_values
+  assign show_size = settings.show_pr_size
+  assign color_count = 0
+  assign size_count = 0
+  if pr_options.size > 0 and show_color or show_size
+    assign color_ck = settings.color_ck | append:',color,colors,couleur,colour'
+    assign get_color = color_ck | downcase | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
+    assign size_ck = settings.size_ck | append:',size,sizes,Größe' 
+    assign get_size = size_ck | downcase | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
+    for option in pr_options
+      assign name = option.name | downcase
+
+      if get_color contains name and color_count == 0 and show_color
+        assign color_count = option.values.size
+        if show_cl_type == '2'
+          assign pr_option = forloop.index
+          assign nt_option = 'option'| append:pr_option
+          assign color_variants = product.variants | where: "available" | map:nt_option | uniq
+          assign color_count = color_variants.size
+        endif
+
+      elsif get_size contains name and size_count == 0 and show_size
+        assign ck_s = true 
+        assign pr_option = 'option'| append:forloop.index 
+        if settings.show_size_type == '1'
+          assign size_variants = option.values
+        else
+          assign size_variants = product.variants | where: "available" | map:pr_option | uniq
+        endif
+        assign size_count = size_variants.size
+      endif 
+
+    endfor
+  endif
+  assign countdown = time_meta| default:product.metafields.meta.countdown
+  assign images_0 = product.images[0] | default:settings.placeholder_img -%}
+  {%- if settings.within_cat and collection -%}
+    {%- assign pr_url = product.url | within:collection -%}
+  {%- else -%}
+    {%- assign pr_url = product.url -%}
+  {%- endif -%}
+  {%- assign pr_url_js = pr_url |split:'?' | first -%}
+
+<div data-page="{{page_t4}}" class="col-lg-{{col}} col-md-{{col_tb}} col-{{col_mb}} mt__30 pr_grid_item product nt_pr desgin__1">
+   <div class="product-inner pr">
+      {%- if countdown != blank and use_cdt -%}
+        <div class="pr_wr_dcimg pr oh">
+          <div class="product-image pr oh lazyloadt4s" data-set4url="/?section_id=main-img{{sett_equal}}" data-rendert4s="{{pr_url_js}}">
+    {%- if images_0 != blank %}<noscript><img class="pr_lazy_img main-img nt_img_ratio" loading="lazy" src="{{ images_0 | img_url: '600x' }}" alt="{{ images_0.alt | escape }}"></noscript>{% endif %}<div class="nt_bg_lz nt_fk_lz"{% unless sett_equal %} style="padding-top:{{ 1 | divided_by: images_0.aspect_ratio | times: 100}}%;"{% endunless %}></div></div>
+          <div class="pr_deal_dt pa pe_none op__0">
+            <span class="pr_title_dt">{{txt_cd}}</span> <span class="pr_coun_dt" data-date="{{countdown}}"></span>
+          </div>
+        </div>
+      {%- else -%}
+         <div class="product-image pr oh lazyloadt4s" data-set4url="/?section_id=main-img{{sett_equal}}" data-rendert4s="{{pr_url_js}}">{%- if images_0 != blank %}<noscript><img class="pr_lazy_img main-img nt_img_ratio" loading="lazy" src="{{ images_0 | img_url: '600x' }}" alt="{{ images_0.alt | escape }}"></noscript>{% endif %}<div class="nt_bg_lz nt_fk_lz"{% unless sett_equal %} style="padding-top:{{ 1 | divided_by: images_0.aspect_ratio | times: 100}}%;"{% endunless %}></div></div>
+      {%- endif -%}
+      <div class="product-info mt__15">
+         {%- if product.vendor.size > 0 and show_vendor -%}<div class="product-brand"><a class="cg chp" href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a></div>{%- endif -%}
+         <h3 class="product-title pr fs__14 mg__0 fwm"><a class="cd chp" href="{{pr_url}}">{{product.title}}</a></h3>
+         <span class="price dib mb__5">{%- render 'product_price',product:product,inc_price:inc_price -%}</span>
+         {%- if use_rating -%}{%- render 'rating',product:product,inc_rating:inc_rating -%}{%- endif -%}
+         {%- if color_count > 0 -%}
+         <div class="swatch__list_js swatch__list lh__1 nt_swatches_on_grid lazyloadt4s" data-colorCount="{{color_count}}" data-set4url="/?section_id=main-sw{{sett_equal}}" data-rendert4s="{{pr_url_js}}"></div>
+         {%- endif -%}
+         {%- if size_count > 0 and settings.pr_size_pos == '2' -%}
+         <div class="product-attr pe_none"><p class="truncate mg__0 w__100">{{size_variants | join: ", "}}</p></div>
+         {%- endif -%}
+     
+      </div>
+   </div>
+</div>
+     
+    

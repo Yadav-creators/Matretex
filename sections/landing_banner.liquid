@@ -1,0 +1,112 @@
+<div class="landing_banner">
+ 
+	<img class="landing_page_banner" src="{{ section.settings.landing_ban_img | img_url: '' }}" />
+  <a href="{{ section.settings.banner_btn_link }}" class="add_txt">{{ section.settings.landing_btn }}</a>
+</div>
+		  
+<style>
+  .landing_banner {
+    position: relative;
+}
+.landing_banner img.landing_page_banner {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+  .landing_banner a.add_txt {
+    position: absolute;
+    bottom: 0;
+    z-index: 11;
+    right: 0;
+}
+.landing_banner a.add_txt {
+    position: absolute;
+    bottom: 2em;
+    z-index: 11;
+    right: 3em;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #b48e7b;
+    border: 1px solid #b48e7b;
+    padding: 1px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+.landing_banner a.add_txt:hover {
+    background: #b48e7b;
+  color:#ffffff;
+} 
+ 
+@media screen and (max-width:767px) {
+  .landing_banner {
+      position: relative;
+      margin-top: 40px;
+  }  
+}
+  
+@media screen and (max-width:600px) {
+  .landing_banner a.add_txt {
+      bottom: 3em;
+      right: 2em;
+      font-size: 13px;
+      padding: 1px 10px;
+  }  
+}
+
+@media screen and (max-width:480px) {
+  .landing_banner a.add_txt {
+      bottom: 2em;
+      right: 1em;
+      font-size: 11px;
+      padding: 1px 5px;
+  }  
+}
+</style>  
+
+{% schema %}
+{
+  "name": "landing banner",
+  "settings": [
+     {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    },
+		{
+			"type": "url",
+			"id": "banner_src",
+			"label": "Link"
+		},  
+			
+		{
+           "type": "image_picker",
+           "id": "landing_ban_img",
+           "label": "Image"
+         },
+
+		 {
+            "id": "banner_btn_link",
+            "type": "url",
+            "label": "Button link"
+          },
+		 {
+            "id": "landing_btn",
+            "type": "text",
+            "label": "Button"
+          }
+ 	],
+  
+
+   "presets": [
+     {
+       "name": "landing banner",
+       "settings": {
+          "title": "banner"
+        }
+     }
+   ]
+}
+{% endschema %}
+
+
+

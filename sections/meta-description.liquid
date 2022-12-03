@@ -1,0 +1,69 @@
+<div class="meta-description">
+  
+ 	{{section.settings.meta_txt}}
+  
+</div>
+<style>
+.meta-description {
+    max-width: 50%;
+    margin-left: 210px;
+  	padding:0 10px;
+}
+  .meta-description p {
+    font-size: 16px;
+    line-height: 26px;
+    color: #444;
+    letter-spacing: 1px;
+}
+ @media screen and (max-width:1700px) {
+   .meta-description {
+     padding:0;
+   }
+   
+ }
+  
+  @media screen and (max-width:1600px) {
+  .meta-description {
+    margin-left: 200px;
+  }
+ }
+  
+  @media screen and (max-width:1024px) {
+  .meta-description {
+    margin: 0 auto;
+    max-width: 90%;
+  }
+   }
+</style>
+
+{% schema %}
+{
+  "name": "meta description",
+  "settings": [
+     {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+	},
+		
+    {
+    "type": "richtext",
+    "id":	"meta_txt",
+    "label":	"text"
+    }
+  ],
+    
+
+   "presets": [
+     {
+       "name": "meta description",
+       "settings": {
+          "title": "client block"
+        }
+     }
+   ]
+}
+{% endschema %}
+
+
+

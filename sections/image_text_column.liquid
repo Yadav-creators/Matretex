@@ -1,0 +1,146 @@
+ <div class="image_text_col">
+   <div class="portal_block">
+   {% for block in section.blocks %}
+		<div class="inner_portal">
+          <div class="portal_img" href="{{block.settings.portal_ico}}"><img class="online_portal_img" src="{{ block.settings.portal_icons | img_url: '' }}" /></div>
+			<p> {{ block.settings.portal_txt }}</p>	  
+		</div>
+  {% endfor %}   
+</div>
+</div>
+
+
+<style>
+.image_text_col .portal_block {
+    display: flex;
+    flex-wrap: wrap;
+}
+ 
+.image_text_col .portal_block .inner_portal {
+    text-align: center;
+    width: 16.5%;
+    margin: 0 auto;
+}
+.image_text_col .portal_block .inner_portal .portal_img {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 170px;
+    margin: 0 auto;
+}
+.image_text_col .portal_block .inner_portal p {
+    color: #b48e7b;
+    font-size: 22px;
+    line-height: 28px;
+    font-family: "playfair Display";
+    width: 50%;
+    margin: 20px auto;
+    text-align: center;
+  	font-weight:600;
+}
+ .image_text_col {
+    padding-bottom: 2em;
+   padding-top:5em;
+}
+.about-section-form p{
+ 	text-align:justify; 
+}
+
+  
+  
+  
+@media screen and (max-width:1600px) {
+  .image_text_col .portal_block .inner_portal .portal_img {
+    max-width: 140px;
+}
+  
+}
+  
+@media screen and (max-width:1400px) {
+ .image_text_col .portal_block .inner_portal .portal_img {
+    max-width: 100px;
+ } 
+  .image_text_col .portal_block .inner_portal p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+  
+@media screen and (max-width:991px) {
+  .image_text_col .portal_block .inner_portal {
+      width: 33.33%;
+  }
+  
+}
+ 
+@media screen and (max-width:767px) {  
+  .about-section-form {
+    max-width: inherit;
+    box-shadow: 0 0 5px #ccc;
+    min-height: 320px;
+    width: 90%;
+  }
+  .about-section-form p {
+    margin: 0px auto;
+  }
+  .image_text_col .portal_block .inner_portal p {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+  
+@media screen and (max-width:575px) {
+  .image_text_col .portal_block .inner_portal {
+      width: 50%;
+  }
+	
+  .image_text_col .portal_block .inner_portal p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+ 
+}
+  
+</style>  
+   
+   {% schema %}
+{
+  "name": "image_text_col",
+  "settings": [
+     {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }	
+  ],
+
+  "blocks": [
+      {
+       "name": "image_text_col",
+       "type": "custom",
+       "settings": [
+   		
+         {
+           "type": "image_picker",
+           "id": "portal_icons",
+           "label": "Image"
+         },
+		{
+           "type": "richtext",
+           "id": "portal_txt",
+           "label": "text"
+         }
+		
+       ]
+     }
+   ],
+
+   "presets": [
+     {
+       "name": "image_text_col",
+       "settings": {
+          "title": "top-header"
+        }
+     }
+   ]
+}
+{% endschema %}
