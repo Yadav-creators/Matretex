@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Matretex/static/css/main.88501afc.css",
-    "main.js": "/Matretex/static/js/main.9faddbe5.js",
+    "main.js": "/Matretex/static/js/main.063ebc6f.js",
     "static/media/rectangle-21@2x.png": "/Matretex/static/media/rectangle-21@2x.9e2456cb7a8302920313.png",
     "index.html": "/Matretex/index.html",
     "main.88501afc.css.map": "/Matretex/static/css/main.88501afc.css.map",
-    "main.9faddbe5.js.map": "/Matretex/static/js/main.9faddbe5.js.map"
+    "main.063ebc6f.js.map": "/Matretex/static/js/main.063ebc6f.js.map"
   },
   "entrypoints": [
     "static/css/main.88501afc.css",
-    "static/js/main.9faddbe5.js"
+    "static/js/main.063ebc6f.js"
   ]
 }
